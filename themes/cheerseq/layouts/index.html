@@ -1,0 +1,85 @@
+{{ define "body_classes" }}page-home{{ end }}
+
+{{ define "main" }}
+<div class="intro">
+  <div class="container">
+    <div class="row justify-content-start">
+      <div class="col-12 col-md-7 col-lg-6 order-2 order-md-1">
+        {{ .Content }}
+        {{ if .Site.Params.homepage.show_contact_box }}
+        {{ partial "call.html" (dict "site" .Site "context" . "show_button" "true") }}
+        {{ end }}
+      </div>
+      {{ if .Params.intro_image }}
+      <div class="col-12 col-md-5 col-lg-6 order-1 order-md-2 position-relative">
+        <img alt={{ .Title }}
+          class="intro-image{{ if .Params.intro_image_absolute }} intro-image-absolute{{ end }}{{ if .Params.intro_image_hide_on_mobile }} intro-image-hide-mobile{{ end }}"
+          src="{{ .Params.intro_image | relURL }}" />
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+<div class="strip">
+  <div class="container pb-6 pb-md-10">
+    <h2>我们的客户</h2>
+    <ul>
+      <li><img src="/images/clients/IBM.png" alt="IBM"/></li>
+      <li><img src="/images/clients/pfizer.svg" alt="pfizer"/></li>
+      <li><img src="/images/clients/bank-of-china.jpeg" alt="bank of china"/></li>
+      <li><img src="/images/clients/bank-of-jilin.jpeg" alt="bank of jilin"/></li>
+      <li><img src="/images/clients/blum.jpeg" alt="blum"/></li>
+      <li><img src="/images/clients/cgb.jpeg" alt="cgb"/></li>
+      <li><img src="/images/clients/china-bohai-bank.jpeg" alt="china bohai bank"/></li>
+      <li><img src="/images/clients/china-citic-bank.jpeg" alt="china citic bank"/></li>
+      <li><img src="/images/clients/Concentrix.jpeg" alt="Concentrix"/></li>
+      <li><img src="/images/clients/cri.jpeg" alt="cri"/></li>
+      <li><img src="/images/clients/csic.jpeg" alt="csic"/></li>
+      <li><img src="/images/clients/dalian-commodity-exchange.jpeg" alt="dalian commodity exchange"/></li>
+      <li><img src="/images/clients/dlrcb.jpeg" alt="dlrcb"/></li>
+      <li><img src="/images/clients/fidelity.jpeg" alt="fidelity"/></li>
+      <li><img src="/images/clients/hp.jpeg" alt="HP"/></li>
+      <li><img src="/images/clients/met-life.jpeg" alt="met-life"/></li>
+      <li><img src="/images/clients/mitsubishi-electric.jpeg" alt="mitsubishi electric"/></li>
+      <li><img src="/images/clients/netapp.jpeg" alt="netapp"/></li>
+      <li><img src="/images/clients/ping-an-bank.jpeg" alt="ping an bank"/></li>
+      <li><img src="/images/clients/sgs.jpeg" alt="sgs"/></li>
+      <li><img src="/images/clients/stx.jpeg" alt="stx"/></li>
+      <li><img src="/images/clients/ThyssenKrupp.jpeg" alt="ThyssenKrupp"/></li>
+      <li><img src="/images/clients/voith.jpeg" alt="voith"/></li>
+      <li><img src="/images/clients/wicresoft.png" alt="wicresoft"/></li>
+      <li><img src="/images/clients/zhong-jiao-yi-hang.jpeg" alt="zhong jiao yi hang"/></li>
+      <li><img src="/images/clients/accenture.png" alt="accenture"/></li>
+      <li><img src="/images/clients/oracle.png" alt="Oracle"/></li>
+    </ul>
+  </div>
+</div>
+
+{{if .Site.Data.features}}
+<div class="strip strip-grey">
+  <div class="container pt-6 pb-6 pt-md-10 pb-md-10">
+    <h2>合作伙伴</h2>
+    <div class="row justify-content-center">
+      {{ range .Site.Data.features }}
+      <div class="col-12 col-md-6 col-lg-4 mb-2">
+        <div class="feature">
+          {{ if .image }}
+          <div class="feature-image"><img alt="{{ .Title }} logo" src="{{ .image | relURL }}" /></div>
+          {{ end }}
+          <h2 class="feature-title">{{ .title }}</h2>
+          <div class="feature-content">
+            <p>{{ .description }}</p>
+          </div>
+        </div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</div>
+{{end}}
+
+{{ end }}
+
+{{ define "footer_js" }}
+{{ end }}
