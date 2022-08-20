@@ -50,6 +50,8 @@
   display: flex;
   flex-flow: row wrap;
   gap: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
 .strip .container ul li {
